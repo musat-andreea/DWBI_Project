@@ -14,7 +14,9 @@ function AddDoctor(props) {
 
         let body = {
             "nume": name,
-            "data_angajare": hireDate
+            "data_angajare": hireDate,
+            "id_spital": null,
+            "id_specializare": null,
         };
 
         let response = await axios.put(`${apiConfig.baseUrl}/doctor-create`, body);
