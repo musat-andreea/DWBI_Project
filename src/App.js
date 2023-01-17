@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
@@ -13,11 +13,14 @@ import Presentation from "./Components/Presentation";
 import Contact from "./Components/Contact";
 import AddDoctor from "./Components/AddDoctor";
 import AddPacient from "./Components/AddPacient";
+import axios from "axios";
+import {apiConfig} from "./apiConfig";
 
 function App() {
     const title = 'Welcome to your health journal!';
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+
     const database = [
         {
             username: "user1",
@@ -28,22 +31,21 @@ function App() {
             password: "pass2"
         }
     ];
+
     const errors = {
         uname: "invalid username",
         pass: "invalid password"
     };
-    const handleSubmit = (event) => {
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
         var { uname, pass } = document.forms[0];
-        const userData = database.find((user) => user.username === uname.value);
-        if (userData) {
-            if (userData.password !== pass.value) {
-                setErrorMessages({ name: "pass", message: errors.pass });
-            } else {
+        const userData =  await axios.post(`${apiConfig.loginBaseUrl}/api/users/login`, {email: uname, password: pass});
+
+        if (userData.status == 200) {
                 setIsSubmitted(true);
-            }
         } else {
-            setErrorMessages({ name: "uname", message: errors.uname });
+            setErrorMessages({ name: "uname", message: userData.message });
         }
     };
 
@@ -70,6 +72,12 @@ function App() {
             </form>
         </div>
     );
+
+    useEffect(() => {
+        if (isSubmitted)    {
+            window.location.href ='#adddoctor';
+        }
+    }, [isSubmitted])
 
 
     return (

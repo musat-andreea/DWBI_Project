@@ -1,17 +1,26 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {apiConfig} from "../apiConfig";
 
-function AddDoctor() {
-    const getDoctors = async () => {
-        let doctors = await axios.get(apiConfig.baseUrl);
-    };
-    const addDoctor = async () => {
-        let body = {
+function AddDoctor(props) {
+    const [name, setName] = useState('');
+    const [hireDate, setHireDate] = useState('');
 
+    const getDoctors = async () => {
+        let doctors = await axios.get(`${apiConfig.baseUrl}/doctors`);
+    };
+    const addDoctor = async (e) => {
+        e.preventDefault();
+
+        let body = {
+            "nume": name,
+            "data_angajare": hireDate
         };
 
-        let response = await axios.post(apiConfig.baseUrl, body);
+        let response = await axios.put(`${apiConfig.baseUrl}/doctor-create`, body);
+        if (response.status == 200) {
+            alert ('Doctor added');
+        }
     };
     const deleteDoctor = async () => {
         let body = {
@@ -28,11 +37,13 @@ function AddDoctor() {
         <div id='adddoctor'>
             <h3>Adauga un doctor</h3>
             <div className = "form-box">
-                <form>
+                <form onSubmit={addDoctor}>
 
                     <div className = "adddoctor">
-                        <input placeholder="Nume"/>
-                        <input placeholder="Data Angajarii"/><br/>
+                        <p>Numele doctorului</p>
+                        <input placeholder="Nume" type="text"  style={{border: '1px solid cyan'}} onChange={(e) => setName(e.target.value)}/>
+                        <p>Data angajarii</p>
+                        <input type="date" placeholder="Data Angajarii" style={{border: '1px solid cyan'}}  onChange={(e) => setHireDate(e.target.value)}/><br/>
                         <br />
                         <br />
                         <br />
