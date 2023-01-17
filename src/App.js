@@ -11,12 +11,16 @@ import aboutimage from "./images/about.jpg"
 import aboutimage1 from "./images/about2.jpg";
 import Presentation from "./Components/Presentation";
 import Contact from "./Components/Contact";
+import AddDoctor from "./Components/AddDoctor";
+import AddPacient from "./Components/AddPacient";
 
 function App() {
     const title = 'Welcome to your health journal!';
   return (
       <div className='App'>
           <Header/>
+          <AddDoctor/>
+          <AddPacient/>
           <Feature/>
           <Presentation/>
           <About image={aboutimage} title='Comes With All You Need For Better Life' button='Make an appointment' />
