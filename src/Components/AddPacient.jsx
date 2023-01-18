@@ -13,19 +13,33 @@ function AddPacient(props) {
     const addPatient = async (e) => {
         e.preventDefault();
 
-        let body =
-        {
-            "nume": name,
-            "prenume": lastname,
+        var data = JSON.stringify({
+            "nume": lastname,
+            "prenume": name,
             "data_nastere": birthday,
             "telefon": phone,
             "email": email
+        });
+        
+        var config = {
+            method: 'put',
+            url: 'http://192.168.50.125:3002/api/pacient-create',
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            data : data
         };
-
-        let response = await axios.put(`${apiConfig.baseUrl}/pacient-create`, body);
-        if (response.status == 200) {
-            alert ('Patient added');
-        }
+        
+        axios(config)
+            .then(function (response) {
+                if (response.status == 200) {
+                    alert ('Patient added');
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert ('Please Fill the Patient information');
+            });
     };
 
     return (

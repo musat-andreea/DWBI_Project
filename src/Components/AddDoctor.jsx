@@ -12,17 +12,32 @@ function AddDoctor(props) {
     const addDoctor = async (e) => {
         e.preventDefault();
 
-        let body = {
-            "nume": name,
-            "data_angajare": hireDate,
+        var data = JSON.stringify({
             "id_spital": null,
             "id_specializare": null,
-        };
-
-        let response = await axios.put(`${apiConfig.baseUrl}/doctor-create`, body);
-        if (response.status == 200) {
-            alert ('Doctor added');
-        }
+            "nume": name,
+            "data_angajare": hireDate
+          });
+          
+          var config = {
+            method: 'put',
+            url: 'http://192.168.50.125:3002/api/doctor-create',
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            data : data
+          };
+          
+          axios(config)
+            .then(function (response) {
+                if (response.status == 200) {
+                    alert (`Doctor ${name} added`);
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert ('Please Fill the Patient information');
+            });
     };
     const deleteDoctor = async () => {
         let body = {

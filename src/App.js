@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
@@ -14,23 +14,12 @@ import Contact from "./Components/Contact";
 import AddDoctor from "./Components/AddDoctor";
 import AddPacient from "./Components/AddPacient";
 import axios from "axios";
-import {apiConfig} from "./apiConfig";
+import { apiConfig } from "./apiConfig";
 
 function App() {
     const title = 'Welcome to your health journal!';
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
-
-    const database = [
-        {
-            username: "user1",
-            password: "pass1"
-        },
-        {
-            username: "user2",
-            password: "pass2"
-        }
-    ];
 
     const errors = {
         uname: "invalid username",
@@ -39,14 +28,36 @@ function App() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        var { uname, pass } = document.forms[0];
-        const userData =  await axios.post(`${apiConfig.loginBaseUrl}/api/users/login`, {email: uname, password: pass});
+        const { uname, pass } = document.forms[0];
 
-        if (userData.status == 200) {
-                setIsSubmitted(true);
-        } else {
-            setErrorMessages({ name: "uname", message: userData.message });
-        }
+        const data = JSON.stringify({
+            "email": uname.value,
+            "password": pass.value,
+        });
+
+        const config = {
+            method: 'post',
+            // url: 'http://192.168.50.125:3001/api/users/login',
+            url: `${apiConfig.loginBaseUrl}/api/users/login`,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: data
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                if (response.status == 200) {
+                    setIsSubmitted(true);
+                } else {
+                    setErrorMessages({ name: "uname", message: response.message });
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                setErrorMessages({ name: "uname", message: error });
+            });
     };
 
     const renderErrorMessage = (name) =>
@@ -58,12 +69,12 @@ function App() {
             <form onSubmit={handleSubmit}>
                 <div className="input-container">
                     <label>Username </label>
-                    <input type="text" name="uname" required />
+                    <input id='user_email' type="text" name="uname" required />
                     {renderErrorMessage("uname")}
                 </div>
                 <div className="input-container">
                     <label>Password </label>
-                    <input type="password" name="pass" required />
+                    <input id='user_password' type="password" name="pass" required />
                     {renderErrorMessage("pass")}
                 </div>
                 <div className="button-container">
@@ -74,33 +85,33 @@ function App() {
     );
 
     useEffect(() => {
-        if (isSubmitted)    {
-            window.location.href ='#adddoctor';
+        if (isSubmitted) {
+            window.location.href = '#adddoctor';
         }
     }, [isSubmitted])
 
 
     return (
-      <div className='App'>
-          <div className="app">
-              <div className="login-form">
-                  <div className="title">Sign In</div>
-                  {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
-              </div>
-          </div>
-          <Header/>
+        <div className='App'>
+            <div className="app">
+                <div className="login-form">
+                    <div className="title">Log In</div>
+                    {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+                </div>
+            </div>
+            <Header />
 
-          <AddDoctor/>
-          <AddPacient/>
-          <Feature/>
-          <Presentation/>
-          <About image={aboutimage} title='Pacientii nostri' button='Make an appointment' />
-          <About image={aboutimage1} title='Echipa de doctori' button='Schedule a call' />
-          <Contact/>
-      </div>
+            <AddDoctor />
+            <AddPacient />
+            <Feature />
+            <Presentation />
+            <About image={aboutimage} title='Pacientii nostri' button='Make an appointment' />
+            <About image={aboutimage1} title='Echipa de doctori' button='Schedule a call' />
+            <Contact />
+        </div>
 
 
-  );
+    );
 }
 
 export default App;

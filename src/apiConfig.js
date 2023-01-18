@@ -1,4 +1,4 @@
 export const apiConfig = {
-    baseUrl: 'http://localhost:3002',
-    loginBaseUrl: 'http://localhost:3001/',
+    baseUrl: 'http://192.168.50.125:3002/api',
+    loginBaseUrl: 'http://192.168.50.125:3001',
 };
