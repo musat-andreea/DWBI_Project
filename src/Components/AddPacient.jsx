@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import {apiConfig} from "../apiConfig";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function AddPacient(props) {
     const [name, setName] = useState('');
@@ -23,7 +25,7 @@ function AddPacient(props) {
         
         var config = {
             method: 'put',
-            url: 'http://192.168.50.125:3002/api/pacient-create',
+            url: 'http://localhost:8008/pacient-create',
             headers: { 
                 'Content-Type': 'application/json'
             },
@@ -45,27 +47,50 @@ function AddPacient(props) {
     return (
         <div id='addpacient'>
             <h3>Adauga un pacient</h3>
-            <div className = "form-box">
-                <form onSubmit={addPatient}>
+            <Form onSubmit={addPatient}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Nume</Form.Label>
+                    <Form.Control type="text" placeholder="Introduceti numele pacientului" onChange={(e) => setName(e.target.value)} />
+                    {/*<Form.Text className="text-muted">*/}
+                    {/*    We'll never share your email with anyone else.*/}
+                    {/*</Form.Text>*/}
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Prenume</Form.Label>
+                    <Form.Control type="text" placeholder="Introduceti prenumele pacientului" onChange={(e) => setLastname(e.target.value)} />
+                </Form.Group>
+                <Form.Group controlId="duedate">
+                    <Form.Label>Data nasterii</Form.Label>
+                    <Form.Control
+                        type="date"
+                        name="duedate"
+                        placeholder="Introduceti data nasterii"
+                        // value={birthday}
+                        onChange={(e) => setBirthday(e.target.value)}
+                    />
+                </Form.Group>
+                <br />
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Telefon</Form.Label>
+                    <Form.Control type="text" placeholder="Introduceti numarul de telefon al pacientului" onChange={(e) => setPhone(e.target.value)} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" placeholder="Introduceti adresa de email a pacientului" onChange={(e) => setEmail(e.target.value)} />
+                </Form.Group>
+                {/*<Form.Group className="mb-3" controlId="formBasicPassword">*/}
+                {/*    <Form.Label>Password</Form.Label>*/}
+                {/*    <Form.Control type="password" placeholder="Password" />*/}
+                {/*</Form.Group>*/}
+                {/*<Form.Group className="mb-3" controlId="formBasicCheckbox">*/}
+                {/*    <Form.Check type="checkbox" label="Check me out" />*/}
+                {/*</Form.Group>*/}
+                <br />
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
 
-                    <div className = "addpacient">
-                        <input placeholder="Nume" type={'text'} onChange={(e) => setName(e.target.value)}/>
-                        <input placeholder="Prenume" type={'text'} onChange={(e) => setLastname(e.target.value)}/>
-                        <input placeholder="Data Nasterii" style={{border: '1px solid black'}} type={'date'} onChange={(e) => setBirthday(e.target.value)}/>
-                        <input placeholder="E-mail" type={'text'} onChange={(e) => setEmail(e.target.value)}/>
-                        <input placeholder="Phone 000-000-0000" type={'text'} onChange={(e) => setPhone(e.target.value)}/>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        {/*<textarea placeholder="Shipping Address"/><br />*/}
-                        {/*<textarea placeholder="Physical location of the project"/><br />*/}
-                    </div>
-
-                    <button type = "submit" id= "submitBtn" className = "button-text">Submit</button>
-                </form>
-
-            </div>
 
 
         </div>

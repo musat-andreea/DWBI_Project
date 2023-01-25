@@ -15,6 +15,11 @@ import AddDoctor from "./Components/AddDoctor";
 import AddPacient from "./Components/AddPacient";
 import axios from "axios";
 import { apiConfig } from "./apiConfig";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function App() {
     const title = 'Welcome to your health journal!';
@@ -101,8 +106,19 @@ function App() {
             </div>
             <Header />
 
-            <AddDoctor />
-            <AddPacient />
+            <Row>
+                <Col md={{offset: 3, span: 6}}>
+                    <AddDoctor />
+                </Col>
+
+            </Row>
+<br/>
+            <Row>
+                <Col md={{offset: 3, span: 6}}>
+                    <AddPacient />
+                </Col>
+            </Row>
+
             <Feature />
             <Presentation />
             <About image={aboutimage} title='Pacientii nostri' button='Make an appointment' />
