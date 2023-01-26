@@ -9,10 +9,7 @@ import {apiConfig} from "../apiConfig";
 let fetched = false;
 
 function Feature() {
-    const doctorsDb = [
-        {'id': 1, 'nume': 'Andreea Popescu'},
-        {'id': 2, 'nume': 'Marius Ionescu'},
-    ];
+
 
     const [doctors, setDoctors] = useState([]);
 
@@ -20,7 +17,7 @@ function Feature() {
 
         const config = {
             method: 'get',
-            url: 'http://192.168.50.125:3002/api/doctors',
+            url: 'http://localhost:8008/doctors',
             headers: { },
             data : ''
         };
@@ -42,7 +39,7 @@ function Feature() {
     });
 
     const deleteDoctor = async (doctor_id) => {
-        let response = await axios.delete(`${apiConfig.baseUrl}/doctor-delete/${doctor_id}`);
+        let response = await axios.delete(`http://localhost:8008/doctor-delete/${doctor_id}`);
 
         if (response.status == 200) {
             alert('Doctor deleted');

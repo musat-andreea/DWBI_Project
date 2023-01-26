@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {apiConfig} from "../apiConfig";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -48,7 +47,7 @@ function AddDoctor(props) {
 
         };
 
-        let response = await axios.delete(apiConfig.baseUrl);
+        let response = await axios.delete('http://localhost:8008/doctors');
     };
 
     useEffect(() => {
@@ -91,28 +90,3 @@ function AddDoctor(props) {
 }
 
 export default AddDoctor;
-
-{/*<div className = "form-box">*/}
-{/*    <form onSubmit={addDoctor}>*/}
-
-{/*        <div className = "adddoctor">*/}
-{/*            <p>Numele doctorului</p>*/}
-{/*            <input placeholder="Nume" type="text"  style={{border: '1px solid cyan'}} onChange={(e) => setName(e.target.value)}/>*/}
-{/*            <p>Data angajarii</p>*/}
-{/*            <input type="date" placeholder="Data Angajarii" style={{border: '1px solid cyan'}}  onChange={(e) => setHireDate(e.target.value)}/><br/>*/}
-{/*            <br />*/}
-{/*            <br />*/}
-{/*            <br />*/}
-{/*            <br />*/}
-{/*            <br />*/}
-{/*            <br />*/}
-{/*            <br />*/}
-{/*            <br />*/}
-{/*            <br />*/}
-{/*            <br />*/}
-{/*        </div>*/}
-
-{/*        <button type = "submit" id= "submitBtn" className = "button-text">Submit</button>*/}
-{/*    </form>*/}
-
-{/*</div>*/}

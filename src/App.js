@@ -20,6 +20,11 @@ import { apiConfig } from "./apiConfig";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import PatientList from "./Components/PatientList";
+import PieChart from "./Components/PieChart";
+import LineChart from "./Components/LineChart";
+import Pyramid from "./Components/Pyramid";
+import StackedArea from "./Components/StackedArea";
 
 function App() {
     const title = 'Welcome to your health journal!';
@@ -119,8 +124,15 @@ function App() {
                 </Col>
             </Row>
 
-            <Feature />
+            <div className="container">
+                <Feature />
+            </div>
+            <PatientList />
             <Presentation />
+            <PieChart/>
+            <LineChart/>
+            <Pyramid/>
+            <StackedArea/>
             <About image={aboutimage} title='Pacientii nostri' button='Make an appointment' />
             <About image={aboutimage1} title='Echipa de doctori' button='Schedule a call' />
             <Contact />
