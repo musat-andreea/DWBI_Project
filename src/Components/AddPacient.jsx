@@ -35,6 +35,7 @@ function AddPacient(props) {
             .then(function (response) {
                 if (response.status == 200) {
                     alert ('Patient added');
+                    window.location.reload(false);
                 }
             })
             .catch(function (error) {

@@ -35,6 +35,7 @@ function AddDoctor(props) {
             .then(function (response) {
                 if (response.status == 200) {
                     alert (`Doctor ${name} added`);
+                    window.location.reload(false);
                 }
             })
             .catch(function (error) {

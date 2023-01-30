@@ -123,10 +123,8 @@ function App() {
                     <AddPacient />
                 </Col>
             </Row>
+            <Feature />
 
-            <div className="container">
-                <Feature />
-            </div>
             <PatientList />
             <Presentation />
             <PieChart/>
