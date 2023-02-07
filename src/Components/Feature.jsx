@@ -7,6 +7,8 @@ import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ReactPaginate from "react-paginate";
+import {ThreeDots} from "react-loader-spinner";
+import {apiConfig} from "../apiConfig";
 
 let fetched = false;
 
@@ -14,6 +16,7 @@ function Feature() {
 
 
     const [doctors, setDoctors] = useState([]);
+    const [loading, setLoading] = useState(true);
     const pageSize = 4;
 
     const getDoctors = async (pageNr) => {
@@ -21,12 +24,13 @@ function Feature() {
         const config = {
             method: 'get',
             url: `http://localhost:8008/doctors?pageSize=${pageSize}&pageNr=${pageNr}`,
-            headers: { },
-            data : ''
+            headers: {},
+            data: ''
         };
 
+        setLoading(true);
         let response = await axios(config);
-
+        setLoading(false);
         setDoctors(response.data.map(el => el));
     };
 
@@ -38,7 +42,7 @@ function Feature() {
     }, []);
 
     const deleteDoctor = async (doctor_id) => {
-        let response = await axios.delete(`http://localhost:8008/doctor-delete/${doctor_id}`);
+        let response = await axios.delete(`${apiConfig.baseUrl}/doctor-delete/${doctor_id}`);
 
         if (response.status == 200) {
             alert('Doctor deleted');
@@ -53,27 +57,50 @@ function Feature() {
     }
 
     return (
-        <div id='features'>
-            <div className='a-container' style={{position: 'relative'}}>
+        <div id='features' style={{position: 'relative'}}>
+            <div className='a-container'>
                 <Row>
-                {doctors.length > 0 && doctors.map((doctorName, index) => {
-                    {console.log(index, doctorName)}
+                    {loading && <ThreeDots
+                        height="80"
+                        width="80"
+                        radius="9"
+                        color="#4fa94d"
+                        ariaLabel="three-dots-loading"
+                        wrapperStyle={{}}
+                        wrapperClassName=""
+                        visible={true}
+                    />}
+                    {!loading && doctors.length > 0 && doctors.map((doctorName, index) => {
+
                         return <>
-                            <Col md={3} key={`${doctorName[0]}-${index}`}><FeatureBox image={featureimage} title={doctorName[0]} doctorId={doctorName[0]}
-                                                    doctorDeleteFunction={deleteDoctor}/></Col>
+                            <Col md={3} key={`${doctorName[0]}-${index}`}>
+                                <FeatureBox image={featureimage}
+                                            title={doctorName[1]}
+                                            doctorId={doctorName[0]}
+                                            doctorDeleteFunction={deleteDoctor}/></Col>
                         </>
-                })}
+                    })}
                 </Row>
             </div>
-                <ReactPaginate
-                    breakLabel="..."
-                    nextLabel="next >"
-                    onPageChange={handlePageClick}
-                    pageRangeDisplayed={4}
-                    pageCount={10}
-                    previousLabel="< previous"
-                    renderOnZeroPageCount={null}
-                />
+            <ReactPaginate
+                breakLabel="..."
+                nextLabel="next >"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={4}
+                pageCount={10}
+                previousLabel="< previous"
+                renderOnZeroPageCount={null}
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousClassName="page-item"
+                previousLinkClassName="page-link"
+                nextClassName="page-item"
+                nextLinkClassName="page-link"
+                breakClassName="page-item"
+                breakLinkClassName="page-link"
+                containerClassName="pagination"
+                activeClassName="active"
+            />
 
         </div>
     )

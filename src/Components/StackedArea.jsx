@@ -10,77 +10,61 @@ import {
 } from "@syncfusion/ej2-react-charts";
 
 export let data1 = [
-    { x: new Date(2000, 0, 1), y: 0.61 },
-    { x: new Date(2001, 0, 1), y: 0.81 },
-    { x: new Date(2002, 0, 1), y: 0.91 },
-    { x: new Date(2003, 0, 1), y: 1 },
-    { x: new Date(2004, 0, 1), y: 1.19 },
-    { x: new Date(2005, 0, 1), y: 1.47 },
-    { x: new Date(2006, 0, 1), y: 1.74 },
-    { x: new Date(2007, 0, 1), y: 1.98 },
-    { x: new Date(2008, 0, 1), y: 1.99 },
-    { x: new Date(2009, 0, 1), y: 1.7 },
-    { x: new Date(2010, 0, 1), y: 1.48 },
-    { x: new Date(2011, 0, 1), y: 1.38 },
-    { x: new Date(2012, 0, 1), y: 1.66 },
-    { x: new Date(2013, 0, 1), y: 1.66 },
-    { x: new Date(2014, 0, 1), y: 1.67 },
+    { x: new Date(2022, 1, 1), y: 0.87 },
+    { x: new Date(2022, 3, 1), y: 1.7 },
+    { x: new Date(2022, 4, 1), y: 0 },
+    { x: new Date(2022, 5, 1), y: 1 },
+    { x: new Date(2022, 6, 1), y: 1.4 },
+    { x: new Date(2022, 7, 1), y: 1.9 },
+    { x: new Date(2022, 8, 1), y: 0.8 },
+    { x: new Date(2022, 9, 1), y: 1.6 },
+    { x: new Date(2022, 10, 1), y: 0.87 },
+    { x: new Date(2022, 11, 1), y: 1.3 },
+    { x: new Date(2022, 12, 1), y: 0.8 },
 ];
 export let data2 = [
-    { x: new Date(2000, 0, 1), y: 0.03 },
-    { x: new Date(2001, 0, 1), y: 0.05 },
-    { x: new Date(2002, 0, 1), y: 0.06 },
-    { x: new Date(2003, 0, 1), y: 0.09 },
-    { x: new Date(2004, 0, 1), y: 0.14 },
-    { x: new Date(2005, 0, 1), y: 0.2 },
-    { x: new Date(2006, 0, 1), y: 0.29 },
-    { x: new Date(2007, 0, 1), y: 0.46 },
-    { x: new Date(2008, 0, 1), y: 0.64 },
-    { x: new Date(2009, 0, 1), y: 0.75 },
-    { x: new Date(2010, 0, 1), y: 1.06 },
-    { x: new Date(2011, 0, 1), y: 1.25 },
-    { x: new Date(2012, 0, 1), y: 1.55 },
-    { x: new Date(2013, 0, 1), y: 1.55 },
-    { x: new Date(2014, 0, 1), y: 1.65 },
+    { x: new Date(2022, 1, 1), y: 0.05 },
+    { x: new Date(2022, 3, 1), y: 0.18 },
+    { x: new Date(2022, 4, 1), y: 0.4 },
+    { x: new Date(2022, 5, 1), y: 1 },
+    { x: new Date(2022, 6, 1), y: 0.5 },
+    { x: new Date(2022, 7, 1), y: 1.1 },
+    { x: new Date(2022, 8, 1), y: 0.9 },
+    { x: new Date(2022, 9, 1), y: 1.2 },
+    { x: new Date(2022, 10, 1), y: 0.3 },
+    { x: new Date(2022, 11, 1), y: 1.8 },
+    { x: new Date(2022, 12, 1), y: 0.3 },
 ];
 export let data3 = [
-    { x: new Date(2000, 0, 1), y: 0.48 },
-    { x: new Date(2001, 0, 1), y: 0.53 },
-    { x: new Date(2002, 0, 1), y: 0.57 },
-    { x: new Date(2003, 0, 1), y: 0.61 },
-    { x: new Date(2004, 0, 1), y: 0.63 },
-    { x: new Date(2005, 0, 1), y: 0.64 },
-    { x: new Date(2006, 0, 1), y: 0.66 },
-    { x: new Date(2007, 0, 1), y: 0.76 },
-    { x: new Date(2008, 0, 1), y: 0.77 },
-    { x: new Date(2009, 0, 1), y: 0.55 },
-    { x: new Date(2010, 0, 1), y: 0.54 },
-    { x: new Date(2011, 0, 1), y: 0.57 },
-    { x: new Date(2012, 0, 1), y: 0.61 },
-    { x: new Date(2013, 0, 1), y: 0.67 },
-    { x: new Date(2014, 0, 1), y: 0.67 },
+    { x: new Date(2022, 1, 1), y: 0.76 },
+    { x: new Date(2022, 3, 1), y: 0.54 },
+    { x: new Date(2022, 4, 1), y: 0.48 },
+    { x: new Date(2022, 5, 1), y: 0.65 },
+    { x: new Date(2022, 6, 1), y: 0.98 },
+    { x: new Date(2022, 7, 1), y: 0.34 },
+    { x: new Date(2022, 8, 1), y: 0.91 },
+    { x: new Date(2022, 9, 1), y: 1.2 },
+    { x: new Date(2022, 10, 1), y: 0.38 },
+    { x: new Date(2022, 11, 1), y: 0.8 },
+    { x: new Date(2022, 12, 1), y: 0.3 },
 ];
 export let data4 = [
-    { x: new Date(2000, 0, 1), y: 0.23 },
-    { x: new Date(2001, 0, 1), y: 0.17 },
-    { x: new Date(2002, 0, 1), y: 0.17 },
-    { x: new Date(2003, 0, 1), y: 0.2 },
-    { x: new Date(2004, 0, 1), y: 0.23 },
-    { x: new Date(2005, 0, 1), y: 0.36 },
-    { x: new Date(2006, 0, 1), y: 0.43 },
-    { x: new Date(2007, 0, 1), y: 0.52 },
-    { x: new Date(2008, 0, 1), y: 0.72 },
-    { x: new Date(2009, 0, 1), y: 1.29 },
-    { x: new Date(2010, 0, 1), y: 1.38 },
-    { x: new Date(2011, 0, 1), y: 1.82 },
-    { x: new Date(2012, 0, 1), y: 2.16 },
-    { x: new Date(2013, 0, 1), y: 2.51 },
-    { x: new Date(2014, 0, 1), y: 2.61 },
+    { x: new Date(2022, 1, 1), y: 0.4 },
+    { x: new Date(2022, 3, 1), y: 0.87 },
+    { x: new Date(2022, 4, 1), y: 0.3 },
+    { x: new Date(2022, 5, 1), y: 0.7 },
+    { x: new Date(2022, 6, 1), y: 0.58 },
+    { x: new Date(2022, 7, 1), y: 0.84 },
+    { x: new Date(2022, 8, 1), y: 0.91 },
+    { x: new Date(2022, 9, 1), y: 1.6 },
+    { x: new Date(2022, 10, 1), y: 1.38 },
+    { x: new Date(2022, 11, 1), y: 0.6 },
+    { x: new Date(2022, 12, 1), y: 1.4 },
 ];
 
 const StackedArea = () => {
     return (
-        <div className="control-pane">
+        <div className="control-pane" style={{position: 'relative'}}>
             <div className="control-section">
                 <ChartComponent
                     id="stacked-area-charts"
@@ -96,7 +80,7 @@ const StackedArea = () => {
                     primaryYAxis={{
                         title: "Spends",
                         minimum: 0,
-                        maximum: 7,
+                        maximum: 3,
                         interval: 1,
                         lineStyle: { width: 0 },
                         majorTickLines: { width: 0 },
@@ -105,7 +89,7 @@ const StackedArea = () => {
                     }}
                     chartArea={{ border: { width: 0 } }}
                     //   width={Browser.isDevice ? "100%" : "60%"}
-                    title="Trend in Sales of Ethical Produce"
+                    title="Costul consulturilor din 2022 al spitalelor din Bucuresti"
                     //   loaded={this.onChartLoad.bind(this)}
 
                     height="200px"
@@ -116,7 +100,7 @@ const StackedArea = () => {
                             dataSource={data1}
                             xName="x"
                             yName="y"
-                            name="Ignored"
+                            name="MedCare Nr. 19"
                             type="StackingArea"
                             fill="gray"
                         ></SeriesDirective>
@@ -124,7 +108,7 @@ const StackedArea = () => {
                             dataSource={data2}
                             xName="x"
                             yName="y"
-                            name="Lint"
+                            name="MedCare Nr. 3"
                             type="StackingArea"
                             fill="yellow"
                         ></SeriesDirective>
@@ -132,7 +116,7 @@ const StackedArea = () => {
                             dataSource={data3}
                             xName="x"
                             yName="y"
-                            name="Warnings"
+                            name="MedCare Nr. 27"
                             type="StackingArea"
                             fill="orange"
                         ></SeriesDirective>
@@ -140,7 +124,7 @@ const StackedArea = () => {
                             dataSource={data4}
                             xName="x"
                             yName="y"
-                            name="Passed"
+                            name="MedCare Nr. 19"
                             type="StackingArea"
                             fill="green"
                         ></SeriesDirective>

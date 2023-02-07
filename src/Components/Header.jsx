@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from "./Navbar";
 function Header() {
     return (
-        <div id='main'>
+        <div id='main'  style={{position: 'relative'}}>
             <Navbar/>
             <div className='name'>
                 <h1><span>Welcome</span> to your health journal!</h1>

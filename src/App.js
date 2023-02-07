@@ -25,6 +25,7 @@ import PieChart from "./Components/PieChart";
 import LineChart from "./Components/LineChart";
 import Pyramid from "./Components/Pyramid";
 import StackedArea from "./Components/StackedArea";
+import Analize from "./Components/Analize";
 
 function App() {
     const title = 'Welcome to your health journal!';
@@ -103,12 +104,12 @@ function App() {
 
     return (
         <div className='App'>
-            <div className="app">
-                <div className="login-form">
-                    <div className="title">Log In</div>
-                    {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
-                </div>
-            </div>
+            {/*<div className="app">*/}
+            {/*    <div className="login-form"  style={{position: 'relative'}}>*/}
+            {/*        <div className="title">Log In</div>*/}
+            {/*        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             <Header />
 
             <Row>
@@ -124,13 +125,14 @@ function App() {
                 </Col>
             </Row>
             <Feature />
-
             <PatientList />
             <Presentation />
             <PieChart/>
             <LineChart/>
             <Pyramid/>
             <StackedArea/>
+            <Analize/>
+
             <About image={aboutimage} title='Pacientii nostri' button='Make an appointment' />
             <About image={aboutimage1} title='Echipa de doctori' button='Schedule a call' />
             <Contact />

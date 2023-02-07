@@ -10,20 +10,13 @@ import {
     AccumulationDataLabel,
 } from "@syncfusion/ej2-react-charts";
 
-export let data1 = [
-    { x: "Paracetamol", y: 37, text: "37%" },
-    { x: "Diclofenac", y: 17, text: "17%" },
-    { x: "No-spa", y: 19, text: "19%" },
-    { x: "Voltaren", y: 4, text: "4%" },
-];
-
 export let data2 = [
-    { x: "Pensionari", y: 37, text: "47%" },
-    { x: "Adulti", y: 17, text: "36%" },
-    { x: "Copii", y: 19, text: "17%" },
+    { x: "Pensionari", y: 47, text: "47%" },
+    { x: "Adulti", y: 36, text: "36%" },
+    { x: "Copii", y: 17, text: "17%" },
 ];
 
-const PieChart = () => {
+const Analize = () => {
     const pie = React.useRef();
 
     return (
@@ -31,9 +24,9 @@ const PieChart = () => {
             <div className="control-section row">
                 <div className="col">
                     <AccumulationChartComponent
-                        id="pie-chart"
+                        id="pie-chart-ANALIZE"
                         ref={pie}
-                        title="Procentele medicamentelor vândute"
+                        title="Procente Analize"
                         // load={this.load.bind(this)}
                         legendSettings={{ visible: false }}
                         enableSmartLabels={true}
@@ -47,8 +40,8 @@ const PieChart = () => {
                         />
                         <AccumulationSeriesCollectionDirective>
                             <AccumulationSeriesDirective
-                                dataSource={data1}
-                                name="Medicament"
+                                dataSource={data2}
+                                name="Categorie"
                                 xName="x"
                                 yName="y"
                                 explode={true}
@@ -72,4 +65,4 @@ const PieChart = () => {
     );
 };
 
-export default PieChart;
+export default Analize;

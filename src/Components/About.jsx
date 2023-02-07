@@ -17,7 +17,7 @@ function About(props) {
     };
 
     return (
-        <div id='about'>
+        <div id='about' style={{position: 'relative'}}>
             <div className='about-image'>
                 <img src={props.image} alt=''/>
             </div>

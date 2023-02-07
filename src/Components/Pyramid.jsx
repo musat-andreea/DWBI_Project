@@ -13,25 +13,25 @@ import {
 } from "@syncfusion/ej2-react-charts";
 
 export let data1 = [
-    { x: "Ignored", y: 120, text: "120 Ignored" },
-    { x: "Missed", y: 435, text: "435 Missed" },
-    { x: "Error", y: 470, text: "470 Error" },
-    { x: "Linting Error", y: 475, text: "475 Lints" },
-    { x: "Warning", y: 520, text: "520 Warnings" },
-    { x: "Passed", y: 930, text: "930 Passed" },
+    { x: "Ignored", y: 120, text: "Popescu Vlad" },
+    { x: "Missed", y: 435, text: "Dragan Victoria" },
+    { x: "Error", y: 470, text: "Nume239 Prenume 239" },
+    { x: "Linting Error", y: 475, text: "Nume31 Prenume31" },
+    { x: "Warning", y: 520, text: "Ion Simona" },
+    { x: "Passed", y: 930, text: "Voicu Mihaela" },
 ];
 
 const Pyramid = () => {
     const pyramid = React.useRef();
 
     return (
-        <div className="control-pane">
+        <div className="control-pane" style={{position: 'relative'}}>
             <div className="control-section row">
                 <div className="col">
                     <AccumulationChartComponent
                         id="pyramid-chart"
                         ref={pyramid}
-                        title="Test Coverage Chart"
+                        title="Top 6 pacienți (cele mai scumpe consulturi fără discount)"
                         legendSettings={{
                             visible: false,
                         }}
@@ -53,7 +53,7 @@ const Pyramid = () => {
                         />
                         <AccumulationSeriesCollectionDirective>
                             <AccumulationSeriesDirective
-                                name="Test"
+                                name="Cost Consult"
                                 dataSource={data1}
                                 xName="x"
                                 yName="y"

@@ -55,7 +55,7 @@ function AddDoctor(props) {
 
     });
     return (
-            <Form onSubmit={addDoctor}>
+            <Form onSubmit={addDoctor}  style={{position: 'relative'}}>
                 <h3>Adauga un doctor</h3>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Nume</Form.Label>
@@ -74,13 +74,26 @@ function AddDoctor(props) {
                         onChange={(e) => setHireDate(e.target.value)}
                     />
                 </Form.Group>
+                <br />
+                {/*<Form.Group className="mb-3" controlId="formBasicEmail">*/}
+                {/*    <Form.Label>Spital</Form.Label>*/}
+                {/*    <Form.Control type="text" placeholder="Introduceti spitalul doctorului" onChange={(e) => setName(e.target.value)}/>*/}
+                {/*    /!*<Form.Text className="text-muted">*!/*/}
+                {/*    /!*    We'll never share your email with anyone else.*!/*/}
+                {/*    /!*</Form.Text>*!/*/}
+                {/*</Form.Group>*/}
+                {/*<Form.Group className="mb-3" controlId="formBasicEmail">*/}
+                {/*    <Form.Label>Specializare</Form.Label>*/}
+                {/*    <Form.Control type="text" placeholder="Introduceti specializarea doctorului" onChange={(e) => setName(e.target.value)}/>*/}
+                {/*    /!*<Form.Text className="text-muted">*!/*/}
+                {/*    /!*    We'll never share your email with anyone else.*!/*/}
+                {/*    /!*</Form.Text>*!/*/}
+                {/*</Form.Group>*/}
                 {/*<Form.Group className="mb-3" controlId="formBasicPassword">*/}
                 {/*    <Form.Label>Password</Form.Label>*/}
                 {/*    <Form.Control type="password" placeholder="Password" />*/}
                 {/*</Form.Group>*/}
-                {/*<Form.Group className="mb-3" controlId="formBasicCheckbox">*/}
-                {/*    <Form.Check type="checkbox" label="Check me out" />*/}
-                {/*</Form.Group>*/}
+
                 <br />
                 <Button variant="primary" type="submit">
                     Submit
