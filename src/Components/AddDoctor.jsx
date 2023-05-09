@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 
 function AddDoctor(props) {
     const [name, setName] = useState('');
+    const [prenume, setPrenume] = useState('');
     const [hireDate, setHireDate] = useState('');
 
     const getDoctors = async () => {
@@ -16,9 +17,10 @@ function AddDoctor(props) {
         e.preventDefault();
 
         var data = JSON.stringify({
-            "id_spital": null,
-            "id_specializare": null,
+            "id_spital": 1,
+            "id_specializare": 1,
             "nume": name,
+            "prenume": prenume,
             "data_angajare": hireDate
           });
           
@@ -60,6 +62,7 @@ function AddDoctor(props) {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Nume</Form.Label>
                     <Form.Control type="text" placeholder="Introduceti numele doctorului" onChange={(e) => setName(e.target.value)}/>
+                    <Form.Control type="text" placeholder="Introduceti prenumele doctorului" onChange={(e) => setPrenume(e.target.value)}/>
                     {/*<Form.Text className="text-muted">*/}
                     {/*    We'll never share your email with anyone else.*/}
                     {/*</Form.Text>*/}

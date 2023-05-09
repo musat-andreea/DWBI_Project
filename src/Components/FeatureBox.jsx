@@ -47,9 +47,7 @@ function FeatureBox(props) {
                     <input type={'text'} className={''} onChange={(e) => handleDoctorNameEdit(e)}
                            defaultValue={doctorName}/>}
                 </h2>
-
-                <br/>
-                <br/>
+                <h4> {props?.city}</h4>
                 <button id="submitBtn" className="button-text"
                         onClick={() => props.doctorDeleteFunction(props.doctorId)}>Sterge doctor
                 </button>

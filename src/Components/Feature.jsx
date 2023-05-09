@@ -9,6 +9,7 @@ import Col from "react-bootstrap/Col";
 import ReactPaginate from "react-paginate";
 import {ThreeDots} from "react-loader-spinner";
 import {apiConfig} from "../apiConfig";
+import Button from "react-bootstrap/Button";
 
 let fetched = false;
 
@@ -16,14 +17,15 @@ function Feature() {
 
 
     const [doctors, setDoctors] = useState([]);
+    const [city, setCity] = useState('');
     const [loading, setLoading] = useState(true);
     const pageSize = 4;
 
-    const getDoctors = async (pageNr) => {
+    const getDoctors = async (pageNr, chosenCity = '') => {
 
         const config = {
             method: 'get',
-            url: `http://localhost:8008/doctors?pageSize=${pageSize}&pageNr=${pageNr}`,
+            url: `http://localhost:8008/doctors?pageSize=${pageSize}&pageNr=${pageNr}&city=${city ?? chosenCity}`,
             headers: {},
             data: ''
         };
@@ -56,8 +58,21 @@ function Feature() {
         getDoctors(event.selected + 1);
     }
 
+    const handleDoctorsFilter = async (chosenCity) => {
+        setCity(chosenCity);
+        getDoctors(1, chosenCity);
+    }
+
     return (
         <div id='features' style={{position: 'relative'}}>
+
+            <Button variant="primary" onClick={() => handleDoctorsFilter('Bucuresti')}>
+                Doctori Bucuresti
+            </Button>
+            <br/>
+            <Button variant="primary" onClick={() => handleDoctorsFilter('Provincie')}>
+                Doctori provincie
+            </Button>
             <div className='a-container'>
                 <Row>
                     {loading && <ThreeDots
@@ -77,6 +92,7 @@ function Feature() {
                                 <FeatureBox image={featureimage}
                                             title={doctorName[1]}
                                             doctorId={doctorName[0]}
+                                            city={city}
                                             doctorDeleteFunction={deleteDoctor}/></Col>
                         </>
                     })}
